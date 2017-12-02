@@ -23,12 +23,12 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 
 DOCUMENTATION = '''
 ---
-module: osx_defaults
+module: macos_defaults
 author: "Franck Nijhof (@frenck), Etienne Desautels (@etienned)"
 short_description:
     Allows users to read, write, and delete Mac OS X preferences from Ansible.
 description:
-  - osx_defaults allows users to read, write, and delete Mac OS X preferences
+  - macos_defaults allows users to read, write, and delete Mac OS X preferences
     from Ansible scripts.
     Mac OS X applications and other programs use the defaults system to record
     user preferences and other information that must be maintained when the
@@ -97,21 +97,21 @@ notes:
 
 EXAMPLES = '''
 # Show debug menu in Safari. Specifying the type.
-- osx_defaults:
+- macos_defaults:
     domain: com.apple.Safari
     key: IncludeInternalDebugMenu
     type: bool
     value: true
     state: present
 # Set Measurement unit to cm for all apps (NSGlobalDomain).
-- osx_defaults:
+- macos_defaults:
     domain: NSGlobalDomain
     key: AppleMeasurementUnits
     type: string
     value: Centimeters
     state: present
 # Set clock visibility on screensaver for all users on current host.
-- osx_defaults:
+- macos_defaults:
     domain: com.apple.screensaver
     host: currentHost
     any_user: true
@@ -119,28 +119,28 @@ EXAMPLES = '''
     type: int
     value: 1
 # Set Measurement unit to cm for all apps (NSGlobalDomain). No type specified.
-- osx_defaults:
+- macos_defaults:
     key: AppleMeasurementUnits
     type: string
     value: Centimeters
 # Set AppleLanguages to a list of languages.
-- osx_defaults:
+- macos_defaults:
     key: AppleLanguages
     value: ["en", "nl"]
 # Remove a key.
-- osx_defaults:
+- macos_defaults:
     domain: com.geekchimp.macable
     key: ExampleKeyToRemove
     state: absent
 # Set a date. Dates need to be quoted. Timezone can be omitted. Local timezone will be use in this case.
-- osx_defaults:
+- macos_defaults:
     domain: com.geekchimp.macable
     key: SomeDate
     value: "2002-12-15 02:59:43Z"
 # Set the nested key arrangeBy in abbreviated form (nested key need to be quoted).
-- osx_defaults: { domain: com.apple.finder, key: 'DesktopViewSettings:IconViewSettings:arrangeBy', value: dateModified }
+- macos_defaults: { domain: com.apple.finder, key: 'DesktopViewSettings:IconViewSettings:arrangeBy', value: dateModified }
 # Set ListViewSettings key to complex nested values.
-- osx_defaults:
+- macos_defaults:
     domain: com.apple.finder
     key: ComputerViewSettings:ListViewSettings
     value:
