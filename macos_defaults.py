@@ -26,18 +26,18 @@ DOCUMENTATION = '''
 module: macos_defaults
 author: "Franck Nijhof (@frenck), Etienne Desautels (@etienned)"
 short_description:
-    Allows users to read, write, and delete Mac OS X preferences from Ansible.
+    Allows users to read, write, and delete MacOS preferences from Ansible.
 description:
-  - macos_defaults allows users to read, write, and delete Mac OS X preferences
+  - macos_defaults allows users to read, write, and delete MacOS preferences
     from Ansible scripts.
-    Mac OS X applications and other programs use the defaults system to record
+    MacOS applications and other programs use the defaults system to record
     user preferences and other information that must be maintained when the
     applications aren't running (such as default font for new documents, or
     the position of an Info panel).
 version_added: "2.0"
 requirements:
   - Python 2.6+.
-  - OS X installed Foundation and CoreFoundation python modules (or from PyObjC).
+  - MacOS installed Foundation and CoreFoundation python modules (or from PyObjC).
 options:
   domain:
     description:
@@ -82,7 +82,7 @@ options:
     default: present
     choices: [ "present", "absent" ]
 notes:
-    - OS X caches preferences aggressively. This module should take care of
+    - MacOS caches preferences aggressively. This module should take care of
       updating caches but in some cases you may need to logout and login to
       apply the changes.
     - Check mode can be use with this module.
@@ -333,7 +333,7 @@ class Data(str):
 
 class CFPreferences(object):
     """
-    Read, write and delete value for specified keys and indexes from OS X
+    Read, write and delete value for specified keys and indexes from MacOS
     Preferences files (.plist). It's possible to access nested values and to
     write complex nested values. All types in written nested values should be
     supported by the .plist format: bool, int, float, unicode, datetime,
@@ -720,7 +720,7 @@ class OSXDefaultsException(Exception):
 
 class OSXDefaults(object):
     """
-    Class to manage Mac OS X user defaults.
+    Class to manage MacOS user defaults.
     """
 
     def __init__(self, **kwargs):
@@ -978,7 +978,7 @@ def main():
     )
 
     if not has_foundation:
-        module.fail_json(msg='OS X Foundation and CoreFoundation modules are '
+        module.fail_json(msg='MacOS Foundation and CoreFoundation modules are '
                              'required. Be sure to use the Apple provided '
                              'python on the remote Mac or have installed '
                              'the modules.')
