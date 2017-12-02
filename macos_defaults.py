@@ -3,6 +3,7 @@
 
 # (c) 2014, GeekChimp - Franck Nijhof <franck@geekchimp.com>
 # (c) 2017, Etienne Desautels <etienne.desautels@gmail.com>
+# (c) 2017, Craig Buchek <craig@boochtek.com>
 #
 # Ansible is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,7 +25,7 @@ ANSIBLE_METADATA = {'metadata_version': '1.0',
 DOCUMENTATION = '''
 ---
 module: macos_defaults
-author: "Franck Nijhof (@frenck), Etienne Desautels (@etienned)"
+author: "Etienne Desautels (@etienned), Franck Nijhof (@frenck), Craig Buchek (@booch)"
 short_description:
     Allows users to read, write, and delete MacOS preferences from Ansible.
 description:
